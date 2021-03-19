@@ -47,3 +47,20 @@ class TestGalleryApp:
         sleep(1)
 
         assert (driver.find_element_by_xpath("//a[contains(text(),'Logout')]").text == "Logout")
+
+    # logging registered user
+    def test_4(self, setUp):
+        sleep(1)
+        driver.find_element_by_xpath("//a[contains(text(),'Login')]").click()
+        sleep(.5)
+
+        assert (driver.current_url == "https://gallery-app.vivifyideas.com/login")
+
+        driver.find_element_by_xpath("//input[@id='email']").send_keys("test1@gmail.com")
+        sleep(.2)
+        driver.find_element_by_xpath("//input[@id='password']").send_keys("12345678")
+        sleep(.2)
+        driver.find_element_by_xpath("//button[contains(text(),'Submit')]").click()
+        sleep(1)
+
+        assert (driver.find_element_by_xpath("//a[contains(text(),'Logout')]").text == "Logout")
