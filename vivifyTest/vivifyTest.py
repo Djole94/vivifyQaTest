@@ -104,3 +104,10 @@ class TestGalleryApp:
         sleep(1)
 
         assert (driver.find_element_by_xpath("//a[contains(text(),'testGalerija')]").text == "testGalerija")
+
+    # logout
+    def test_8(self):
+        driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
+        sleep(.5)
+
+        assert (driver.current_url == "https://gallery-app.vivifyideas.com/login")
