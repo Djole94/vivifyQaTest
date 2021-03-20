@@ -86,3 +86,11 @@ class TestGalleryApp:
         sleep(2)
 
         assert (driver.current_url == "https://gallery-app.vivifyideas.com/")
+
+    # go to MyGallery page
+    def test_6(self):
+        sleep(1)
+        driver.find_element_by_xpath("//a[contains(text(),'My Galleries')]").click()
+        sleep(2)
+
+        assert (driver.current_url == "https://gallery-app.vivifyideas.com/my-galleries")
