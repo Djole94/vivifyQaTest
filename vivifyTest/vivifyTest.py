@@ -64,3 +64,25 @@ class TestGalleryApp:
         sleep(1)
 
         assert (driver.find_element_by_xpath("//a[contains(text(),'Logout')]").text == "Logout")
+
+    # create Gallery
+    def test_5(self):
+        sleep(1)
+        driver.find_element_by_xpath("//a[contains(text(),'Create Gallery')]").click()
+        sleep(.2)
+
+        assert (driver.current_url == "https://gallery-app.vivifyideas.com/create")
+
+        driver.find_element_by_xpath("//input[@id='title']").send_keys("test1Gallery")
+        sleep(.2)
+        driver.find_element_by_xpath("//input[@id='description']").send_keys("bla bla bla, neki opis")
+        sleep(.2)
+        driver.find_element_by_xpath("//body/div[@id='app']/div[2]/div[1]/div[1]/form[1]/div[3]/div[1]/div[1]/input[1]")\
+                .send_keys("https://i.pinimg.com/originals/39/ab/4b/39ab4b0edf37852314be7176004e29cb.jpg")
+        sleep(.2)
+        # driver.find_element_by_xpath("//button[contains(text(),'Add image')]").click()
+        # sleep(.2)
+        driver.find_element_by_xpath("//button[contains(text(),'Submit')]").click()
+        sleep(2)
+
+        assert (driver.current_url == "https://gallery-app.vivifyideas.com/")
