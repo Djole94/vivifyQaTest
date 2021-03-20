@@ -94,3 +94,13 @@ class TestGalleryApp:
         sleep(2)
 
         assert (driver.current_url == "https://gallery-app.vivifyideas.com/my-galleries")
+
+    # search created Gallery
+    def test_7(self):
+        sleep(.5)
+        driver.find_element_by_xpath("//body/div[@id='app']/div[2]/div[1]/div[1]/div[1]/input[1]").send_keys("testGalerija")
+        sleep(.2)
+        driver.find_element_by_xpath("//button[contains(text(),'Filter')]").click()
+        sleep(1)
+
+        assert (driver.find_element_by_xpath("//a[contains(text(),'testGalerija')]").text == "testGalerija")
